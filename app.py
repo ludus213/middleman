@@ -297,6 +297,11 @@ async def get_player_state(player: str = Query(...)):
     return {"ok": True, "result": dict(row)}
 
 
+@app.get("/ping")
+async def ping():
+    return {"ok": True, "service": "middleman", "time": datetime.utcnow().isoformat()}
+
+
 if __name__ == "__main__":
     import uvicorn
 
